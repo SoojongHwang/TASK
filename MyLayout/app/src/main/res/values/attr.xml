@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="MyLayout">
+        <attr name="weightSum" format="float"/>
+        <attr name="weight" format="float"/>
+    </declare-styleable>
+</resources>
