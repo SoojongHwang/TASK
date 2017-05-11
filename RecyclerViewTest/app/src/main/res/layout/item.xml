@@ -1,38 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--?xml version="1.0" encoding="utf-8"?-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:weightSum="1">
+    
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3">
 
-    <android.support.v7.widget.cardview
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardcornerradius="10dp"
-        app:cardelevation="10dp"
-        app:cardusecompatpadding="true">
-
-        <linearlayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <imageview
-                android:id="@+id/image"
-                android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+            
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.7"
+                tool:background="@android:drawable/alert_dark_frame"/>
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaletype="centerCrop">
+                android:layout_weight="0.3"
+                tool:hint="haha"/>
 
-                <textview
-                    android:id="@+id/imagetitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:minheight="?android:attr/listPreferredItemHeightSmall"
-                    android:textappearance="?android:attr/textAppearanceListItemSmall"></textview>
-            </imageview>
-        </linearlayout>
-    </android.support.v7.widget.cardview>
+        </LinearLayout>
 
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
