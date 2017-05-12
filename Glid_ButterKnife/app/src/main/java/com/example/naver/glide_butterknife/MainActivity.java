@@ -1,4 +1,4 @@
-package com.example.naver.glid_butterknife;
+package com.example.naver.glide_butterknife;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
