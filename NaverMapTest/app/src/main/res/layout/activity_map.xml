@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.kepler.navermaptest.MapActivity"
     android:orientation="vertical"
-    android:weightSum="1.0"
-    >
+    android:weightSum="1.0">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -22,6 +20,7 @@
             android:gravity="center_vertical|center_horizontal"/>
         <EditText
             android:id="@+id/address"
+            android:hint="불정로 6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"/>
@@ -36,13 +35,20 @@
         android:id="@+id/nmapview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8">
+        android:layout_weight="0.6">
 
     </com.nhn.android.maps.NMapView>
-
-    <Button
+    <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:text="등 록"/>
+        android:layout_weight="0.3">
+
+    </ListView>
+    <!--<TextView-->
+        <!--android:id="@+id/textHere"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:text="주소에 대응되는 값"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="0.3"/>-->
 </LinearLayout>
