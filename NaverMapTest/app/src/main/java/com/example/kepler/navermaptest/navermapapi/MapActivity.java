@@ -1,16 +1,19 @@
-package com.example.kepler.navermaptest;
+package com.example.kepler.navermaptest.navermapapi;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+
+import com.example.kepler.navermaptest.R;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapView;
 
@@ -32,7 +35,7 @@ public class MapActivity extends NMapActivity {
     @BindView(R.id.nmapview)
     NMapView mMapView;
     @BindView(R.id.address)
-    EditText here;
+    EditText et_address;
     @BindView(R.id.search)
     Button searchButton;
     @BindView(R.id.listview)
@@ -61,20 +64,22 @@ public class MapActivity extends NMapActivity {
         mMapView.requestFocus();
         mMapView.setBuiltInZoomControls(true, null);
         //
-        adapter = new SiteAdapter();
+
     }
     @OnClick(R.id.search)
     public void onClickedSearch() {
         hideKeyboard();
+        listView.setAdapter(null);
         Retrofit client = new Retrofit.Builder().baseUrl("https://openapi.naver.com/").addConverterFactory(GsonConverterFactory.create()).build();
         NaverAPI service = client.create(NaverAPI.class);
-        Call<APIMapResult> call = service.getMap("대학로", "utf-8");
-
+        String address = et_address.getText().toString();
+        Call<APIMapResult> call = service.getMap("한가람로", "utf-8");
 
         call.enqueue(new Callback<APIMapResult>() {
             @Override
             public void onResponse(Call<APIMapResult> call, Response<APIMapResult> response) {
                 if(response.isSuccessful()) {
+                    adapter = new SiteAdapter();
                     List<APIMapResult.Result.Items> list = response.body().getResult().getItems();
                     for(int i=0; i<list.size(); i++){
                         String address = list.get(i).getAddress();
@@ -85,6 +90,13 @@ public class MapActivity extends NMapActivity {
                         adapter.addSite(s);
                     }
                     listView.setAdapter(adapter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Site site = (Site)adapter.getItem(position);
+                            Toast.makeText(getApplicationContext(), site.getX()+"/"+site.getY(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
 
@@ -95,11 +107,11 @@ public class MapActivity extends NMapActivity {
         });
     }
     private void hideKeyboard(){
-        imm.hideSoftInputFromWindow(here.getWindowToken(),0);
+        imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),0);
     }
 
 
-    class SiteAdapter extends BaseAdapter{
+    private class SiteAdapter extends BaseAdapter{
         ArrayList<Site> items = new ArrayList<>();
         @Override
         public int getCount() {

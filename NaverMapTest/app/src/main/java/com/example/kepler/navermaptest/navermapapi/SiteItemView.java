@@ -1,4 +1,4 @@
-package com.example.kepler.navermaptest;
+package com.example.kepler.navermaptest.navermapapi;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,9 +7,13 @@ import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.kepler.navermaptest.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Kepler on 2017-05-16.
@@ -41,5 +45,10 @@ public class SiteItemView extends LinearLayout {
 
     public void setAddress(String address){
         tv.setText(address);
+    }
+
+    @OnClick(R.id.item_add)
+    public void onClickedAdd(){
+        Toast.makeText(getContext(), "이거 진짜 추가?", Toast.LENGTH_SHORT).show();
     }
 }

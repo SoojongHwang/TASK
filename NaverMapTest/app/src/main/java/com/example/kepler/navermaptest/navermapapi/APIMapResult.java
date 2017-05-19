@@ -1,4 +1,4 @@
-package com.example.kepler.navermaptest;
+package com.example.kepler.navermaptest.navermapapi;
 
 import java.util.List;
 

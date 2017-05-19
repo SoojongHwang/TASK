@@ -6,10 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import butterknife.BindView;
-import butterknife.OnClick;
-import butterknife.ButterKnife;
+import com.example.kepler.navermaptest.navermapapi.MapActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     final static String url = "https://openapi.naver.com/v1/map/staticmap.bin?" +

@@ -1,4 +1,4 @@
-package com.example.kepler.navermaptest;
+package com.example.kepler.navermaptest.navermapapi;
 
 /**
  * Created by Kepler on 2017-05-15.
