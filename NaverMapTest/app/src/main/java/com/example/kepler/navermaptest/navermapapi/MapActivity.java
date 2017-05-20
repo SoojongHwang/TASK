@@ -90,13 +90,6 @@ public class MapActivity extends NMapActivity {
                         adapter.addSite(s);
                     }
                     listView.setAdapter(adapter);
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Site site = (Site)adapter.getItem(position);
-                            Toast.makeText(getApplicationContext(), site.getX()+"/"+site.getY(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
                 }
             }
 
