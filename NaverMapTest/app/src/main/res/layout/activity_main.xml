@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,12 +36,19 @@
             android:text="저 장" />
     </LinearLayout>
 
-    <EditText
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="0.8"-->
+        <!--android:hint="Space for Components"-->
+        <!--android:textSize="30dp"-->
+        <!--android:gravity="center_horizontal|center_vertical"/>-->
+    <ImageView
+        android:id="@+id/bitmap"
+        android:background="#00ff00"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
-        android:hint="Space for Components" />
-
+        android:layout_weight="0.8"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,7 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:text="그림"/>
+            android:text="Static Map 넣기"/>
         <Button
             android:id="@+id/button_add_map"
             android:layout_width="0dp"
