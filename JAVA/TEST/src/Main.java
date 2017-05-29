@@ -10,24 +10,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Main {
 	
 	public static void main(String[] args) {
-        String clientId = "hOBAjjmz9dUkwoGrp6pS";//¾ÖÇÃ¸®ÄÉÀÌ¼Ç Å¬¶óÀÌ¾ğÆ® ¾ÆÀÌµğ°ª";
-        String clientSecret = "ZjcaMrNM5I";//¾ÖÇÃ¸®ÄÉÀÌ¼Ç Å¬¶óÀÌ¾ğÆ® ½ÃÅ©¸´°ª";
+        String clientId = "hOBAjjmz9dUkwoGrp6pS";//ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ìµï¿½";
+        String clientSecret = "ZjcaMrNM5I";//ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½";
         try {
-            String addr = URLEncoder.encode("ÇÑ°¡¶÷·Î 446", "UTF-8");
-            String addr2 = URLEncoder.encode("127.1157168,37.5365521","UTF-8");
+            String addr = URLEncoder.encode("ì •ì", "UTF-8");
+//            String addr2 = URLEncoder.encode("127.1157168,37.5365521","UTF-8");
             String apiURL = "https://openapi.naver.com/v1/map/geocode?query=" + addr; //json
-            String apiURL2 = "https://openapi.naver.com/v1/map/reversegeocode?query="+addr2;
+//            String apiURL2 = "https://openapi.naver.com/v1/map/reversegeocode?query="+addr2;
             //String apiURL = "https://openapi.naver.com/v1/map/geocode.xml?query=" + addr; // xml
-            URL url = new URL(apiURL2);
+            URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("X-Naver-Client-Id", clientId);
             con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
             int responseCode = con.getResponseCode();
             BufferedReader br;
-            if(responseCode==200) { // Á¤»ó È£Ãâ
+            if(responseCode==200) { // ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            } else {  // ¿¡·¯ ¹ß»ı
+            } else {  // ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
                 br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
             }
             String inputLine;
